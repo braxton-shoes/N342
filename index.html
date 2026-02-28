@@ -430,7 +430,7 @@
         const city = document.getElementById('custCity').value;
         const post = document.getElementById('custPost').value;
 
-        const text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Туфлі Braxton N342\nКолір: ${activeColorName}\nРозмір: ${activeSize}\nЦіна: 2450 грн\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
+        const text = `📦 НОВЕ ЗАМОВЛЕННЯ!\n\nТовар: Туфлі Braxton N342\nКолір: ${activeColorName}\nРозмір: ${activeSize}\nЦіна: 2600 грн\n\nКлієнт: ${name}\nТел: ${phone}\nНаселений пункт: ${city}\nПошта: ${post}`;
 
         const token = '8682349813:AAH8KuVg1KNY-c_nBu2EEz2l0f_1QloTqW8';
         
@@ -442,7 +442,7 @@
             return fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}&parse_mode=HTML`);
         }))
         .then(() => {
-            if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2450, currency: 'UAH', content_name: 'Туфлі N342 ' + activeColorName});
+            if(typeof fbq === 'function') fbq('track', 'Purchase', {value: 2600, currency: 'UAH', content_name: 'Туфлі N342 ' + activeColorName});
             document.querySelector('form').style.display = 'none';
             document.getElementById('successMsg').style.display = 'block';
         })
