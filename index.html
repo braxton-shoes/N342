@@ -48,15 +48,22 @@
         .features li::before { content: '✓'; color: #b17b44; position: absolute; left: 0; font-weight: bold; }
 
         .selector-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-        .selector-title { font-weight: bold; color: #222; font-size: 15px; }
+        .selector-title { font-weight: bold; color: #222; font-size: 15px; margin-bottom: 8px; display: block; }
         .size-link { color: #b17b44; font-size: 14px; text-decoration: underline; cursor: pointer; font-weight: 500; }
         
         .color-options { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
         .color-circle { width: 38px; height: 38px; border-radius: 50%; cursor: pointer; border: 2px solid #ddd; transition: 0.3s; }
-        .color-circle.active { border-color: #111; transform: scale(1.15); box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        .color-blue { background-color: #2c3e50; } 
-        .color-brown { background-color: #6b4e31; }
-        .color-black_smooth { background-color: #0f0f0f; border: 1px solid #555; }
+        .color-circle.active { border-color: #111; transform: scale(1.15); box-shadow: 0 0 10px rgba(0,0,0,0.15); border-width: 3px; }
+        
+        /* ПАЛІТРА КОЛЬОРІВ */
+        .color-black_smooth { background-color: #0f0f0f; }
+        .color-black_suede { background-color: #2b2b2b; } /* Трохи світліший чорний для замші */
+        .color-brown_black { background-color: #6b4e31; }
+        .color-blue_black { background-color: #2c3e50; }
+        
+        /* Розділені навпіл кольори для білої підошви */
+        .color-brown_white { background: linear-gradient(to bottom, #6b4e31 50%, #ffffff 50%); }
+        .color-blue_white { background: linear-gradient(to bottom, #2c3e50 50%, #ffffff 50%); }
 
         .size-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 35px; }
         .size-btn { padding: 12px 0; border: 1px solid #ddd; background: #fff; cursor: pointer; flex: 1 0 100px; border-radius: 4px; transition: 0.2s; font-size: 14px; text-align: center; }
@@ -144,11 +151,14 @@
         </div>
 
         <div class="mobile-only" style="width: 100%; margin-top: 25px; text-align: center;">
-            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay">Чорна гладка шкіра</span></span>
+            <span class="selector-title">Оберіть колір: <br><span class="colorNameDisplay" style="color:#b17b44">Чорна гладка шкіра</span></span>
             <div class="color-options" style="justify-content: center; margin-top: 10px;">
                 <div class="color-circle color-black_smooth active" onclick="selectColor('Чорна гладка шкіра', 'black_smooth')" title="Чорна гладка шкіра"></div>
-                <div class="color-circle color-brown" onclick="selectColor('Коричнева замша', 'brown')" title="Коричнева замша"></div>
-                <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')" title="Синя замша"></div>
+                <div class="color-circle color-black_suede" onclick="selectColor('Чорна замша', 'black_suede')" title="Чорна замша"></div>
+                <div class="color-circle color-brown_black" onclick="selectColor('Коричнева замша з чорною підошвою', 'brown_black')" title="Коричнева замша з чорною підошвою"></div>
+                <div class="color-circle color-brown_white" onclick="selectColor('Коричнева замша з білою підошвою', 'brown_white')" title="Коричнева замша з білою підошвою"></div>
+                <div class="color-circle color-blue_black" onclick="selectColor('Синя замша з чорною підошвою', 'blue_black')" title="Синя замша з чорною підошвою"></div>
+                <div class="color-circle color-blue_white" onclick="selectColor('Синя замша з білою підошвою', 'blue_white')" title="Синя замша з білою підошвою"></div>
             </div>
         </div>
 
@@ -168,17 +178,20 @@
         </ul>
 
         <div class="desktop-only">
-            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay">Чорна гладка шкіра</span></span>
+            <span class="selector-title">Оберіть колір: <span class="colorNameDisplay" style="color:#b17b44">Чорна гладка шкіра</span></span>
             <div class="color-options">
                 <div class="color-circle color-black_smooth active" onclick="selectColor('Чорна гладка шкіра', 'black_smooth')" title="Чорна гладка шкіра"></div>
-                <div class="color-circle color-brown" onclick="selectColor('Коричнева замша', 'brown')" title="Коричнева замша"></div>
-                <div class="color-circle color-blue" onclick="selectColor('Синя замша', 'blue')" title="Синя замша"></div>
+                <div class="color-circle color-black_suede" onclick="selectColor('Чорна замша', 'black_suede')" title="Чорна замша"></div>
+                <div class="color-circle color-brown_black" onclick="selectColor('Коричнева замша з чорною підошвою', 'brown_black')" title="Коричнева замша з чорною підошвою"></div>
+                <div class="color-circle color-brown_white" onclick="selectColor('Коричнева замша з білою підошвою', 'brown_white')" title="Коричнева замша з білою підошвою"></div>
+                <div class="color-circle color-blue_black" onclick="selectColor('Синя замша з чорною підошвою', 'blue_black')" title="Синя замша з чорною підошвою"></div>
+                <div class="color-circle color-blue_white" onclick="selectColor('Синя замша з білою підошвою', 'blue_white')" title="Синя замша з білою підошвою"></div>
             </div>
         </div>
 
         <div id="sizeSection" style="padding: 10px; border-radius: 8px; margin: -10px -10px 10px -10px; transition: background-color 0.5s ease;">
             <div class="selector-header">
-                <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:normal">не обрано</span></span>
+                <span class="selector-title">Оберіть розмір: <span id="sizeText" style="font-weight:normal; color:#b17b44">не обрано</span></span>
                 <span class="size-link" onclick="toggleSizeModal(true)">📏 Таблиця розмірів</span>
             </div>
             <div class="size-options">
@@ -216,13 +229,22 @@
     <h2 class="reviews-title">Також дивіться інші кольори</h2>
     <div class="color-showcase-grid">
         <div class="color-showcase-item showcase-black_smooth active" onclick="selectColor('Чорна гладка шкіра', 'black_smooth')">
-            <img src="black_smooth_1.jpg"><span>Чорна гладка шкіра</span>
+            <img src="black_smooth_1.jpg" onerror="this.src='https://i.postimg.cc/t4G2mSp8/7420235072.jpg'"><span>Чорна гладка</span>
         </div>
-        <div class="color-showcase-item showcase-brown" onclick="selectColor('Коричнева замша', 'brown')">
-            <img src="brown_1.jpg"><span>Коричнева замша</span>
+        <div class="color-showcase-item showcase-black_suede" onclick="selectColor('Чорна замша', 'black_suede')">
+            <img src="black_suede_1.jpg" onerror="this.src='https://i.postimg.cc/t4G2mSp8/7420235072.jpg'"><span>Чорна замша</span>
         </div>
-        <div class="color-showcase-item showcase-blue" onclick="selectColor('Синя замша', 'blue')">
-            <img src="blue_1.jpg"><span>Синя замша</span>
+        <div class="color-showcase-item showcase-brown_black" onclick="selectColor('Коричнева замша з чорною підошвою', 'brown_black')">
+            <img src="brown_black_1.jpg" onerror="this.src='brown_1.jpg'"><span>Коричнева (чорна під.)</span>
+        </div>
+        <div class="color-showcase-item showcase-brown_white" onclick="selectColor('Коричнева замша з білою підошвою', 'brown_white')">
+            <img src="brown_1.jpg" onerror="this.src='https://i.postimg.cc/k4mF1fWn/7420235061.jpg'"><span>Коричнева (біла під.)</span>
+        </div>
+        <div class="color-showcase-item showcase-blue_black" onclick="selectColor('Синя замша з чорною підошвою', 'blue_black')">
+            <img src="blue_black_1.jpg" onerror="this.src='blue_1.jpg'"><span>Синя (чорна під.)</span>
+        </div>
+        <div class="color-showcase-item showcase-blue_white" onclick="selectColor('Синя замша з білою підошвою', 'blue_white')">
+            <img src="blue_1.jpg" onerror="this.src='https://i.postimg.cc/J0v0hPzX/7420235058.jpg'"><span>Синя (біла під.)</span>
         </div>
     </div>
 </div>
@@ -232,11 +254,11 @@
     <div class="slider-wrapper">
         <button class="nav-btn prev-btn" onclick="slideReviews(-1)">❮</button>
         <div class="reviews-slider" id="reviewsSlider">
-            <div class="review-card"><img src="review_1.jpg"></div>
-            <div class="review-card"><img src="review_2.jpg"></div>
-            <div class="review-card"><img src="review_3.jpg"></div>
-            <div class="review-card"><img src="review_4.jpg"></div>
-            <div class="review-card"><img src="review_5.jpg"></div>
+            <div class="review-card"><img src="review_1.jpg" onerror="this.style.display='none'"></div>
+            <div class="review-card"><img src="review_2.jpg" onerror="this.style.display='none'"></div>
+            <div class="review-card"><img src="review_3.jpg" onerror="this.style.display='none'"></div>
+            <div class="review-card"><img src="review_4.jpg" onerror="this.style.display='none'"></div>
+            <div class="review-card"><img src="review_5.jpg" onerror="this.style.display='none'"></div>
         </div>
         <button class="nav-btn next-btn" onclick="slideReviews(1)">❯</button>
     </div>
@@ -287,11 +309,14 @@
 </div>
 
 <script>
-    // Налаштовано кількість фотографій згідно з вашими даними
+    // Масив з усіма 6 кольорами. Додайте назви своїх нових фото сюди:
     const productImages = {
         'black_smooth': ['black_smooth_1.jpg', 'black_smooth_2.jpg', 'black_smooth_3.jpg', 'black_smooth_4.jpg'],
-        'brown': ['brown_1.jpg', 'brown_2.jpg', 'brown_3.jpg', 'brown_4.jpg', 'brown_5.jpg', 'brown_6.jpg'],
-        'blue':  ['blue_1.jpg', 'blue_2.jpg', 'blue_3.jpg', 'blue_4.jpg', 'blue_5.jpg', 'blue_6.jpg']
+        'black_suede':  ['black_suede_1.jpg', 'black_suede_2.jpg', 'black_suede_3.jpg' , 'black_suede_4.jpg'], // ДОДАТИ ВАШІ ФОТО
+        'brown_black':  ['brown_black_1.jpg', 'brown_black_2.jpg', 'brown_black_3.jpg', 'brown_black_4.jpg', 'brown_black_5.jpg'], // ДОДАТИ ВАШІ ФОТО
+        'brown_white':  ['brown_1.jpg', 'brown_2.jpg', 'brown_3.jpg', 'brown_4.jpg', 'brown_5.jpg', 'brown_6.jpg'],
+        'blue_black':   ['blue_black_1.jpg', 'blue_black_2.jpg', 'blue_black_3.jpg', 'blue_black_4.jpg', 'blue_black_5.jpg'], // ДОДАТИ ВАШІ ФОТО
+        'blue_white':   ['blue_1.jpg', 'blue_2.jpg', 'blue_3.jpg', 'blue_4.jpg', 'blue_5.jpg', 'blue_6.jpg']
     };
 
     let activeColorKey = 'black_smooth';
@@ -355,6 +380,7 @@
 
     function updateGallery() {
         const imgs = productImages[activeColorKey];
+        if(!imgs || imgs.length === 0) return; // Захист від порожніх масивів
         
         mainImageEl.style.opacity = '0.3';
         setTimeout(() => {
@@ -375,6 +401,7 @@
 
     function changeImageByStep(s) {
         const imgs = productImages[activeColorKey];
+        if(!imgs || imgs.length === 0) return;
         imgIdx = (imgIdx + s + imgs.length) % imgs.length;
         updateGallery();
     }
